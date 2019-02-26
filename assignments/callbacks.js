@@ -70,20 +70,18 @@ sumNums(8, 4, multiplyNums);
 function contains(item, list, cb) {
   // contains checks if an item is present inside of the given array/list.
   // Pass true to the callback if it is, otherwise pass false.
-  cb(item, list);
+  for (let i = 0; i < list.length; i++) {
+    if (list[i] === item) {
+      cb(true);
+    } else {
+      cb(false);
+    }
+  }
 }
 
-const checks = (item, list) => {
-  let status;
-  list.forEach(currentValue => {
-    if (currentValue === item) {
-      status = true;
-    } else {
-      status = false;
-    }
-    console.log(status);
-  });
-};
+function checks(bool) {
+  console.log(bool);
+}
 
 contains('yo-yo', items, checks);
 
