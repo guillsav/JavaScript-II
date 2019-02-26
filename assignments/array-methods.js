@@ -480,8 +480,7 @@ console.log(allCaps);
 // The large shirts won't be available for the event due to an ordering issue.  Get a list of runners with large sized shirts so they can choose a different size. Return an array named largeShirts that contains information about the runners that have a shirt size of L and log the result
 console.log(`\n ==== Challenge 3: Use .filter() ====`);
 
-let largeShirts = [];
-largeShirts.push(runners.filter(runner => runner.shirt_size === 'L'));
+let largeShirts = runners.filter(runner => runner.shirt_size === 'L');
 
 console.log(largeShirts);
 
@@ -489,13 +488,9 @@ console.log(largeShirts);
 // The donations need to be tallied up and reported for tax purposes. Add up all the donations into a ticketPriceTotal array and log the result
 console.log(`\n ==== Challenge 4: Use .reduce() ====`);
 
-let ticketPriceTotal = [];
-
-ticketPriceTotal.push(
-  runners.reduce((accumulator, runner) => {
-    return accumulator + runner.donation;
-  }, 0)
-);
+let ticketPriceTotal = runners.reduce((accumulator, runner) => {
+  return accumulator + runner.donation;
+}, 0);
 
 console.log(ticketPriceTotal);
 
@@ -511,5 +506,12 @@ emailList.sort();
 console.log(emailList);
 
 // Problem 2
-//
+console.log(`\n ==== Problem 2 ====`);
+// Create a new array with all the runners that have donations under $100.
+const lowDonations = runners.filter(runner => runner.donation < 100);
+console.log(lowDonations);
+
 // Problem 3
+console.log(`\n ==== Problem 3 ====`);
+// Print the list of each runner company to the console
+runners.forEach(runner => console.log(runner.company_name));
