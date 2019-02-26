@@ -70,20 +70,16 @@ sumNums(8, 4, multiplyNums);
 function contains(item, list, cb) {
   // contains checks if an item is present inside of the given array/list.
   // Pass true to the callback if it is, otherwise pass false.
-  for (let i = 0; i < list.length; i++) {
-    if (list[i] === item) {
-      cb(true);
-    } else {
-      cb(false);
-    }
+  let result;
+  if (list.includes(item)) {
+    cb(true);
+  } else {
+    cb(false);
   }
+  return cb(result);
 }
 
-function checks(bool) {
-  console.log(bool);
-}
-
-contains('yo-yo', items, checks);
+contains('Gum', items, console.log);
 
 /* STRETCH PROBLEM */
 
