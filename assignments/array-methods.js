@@ -506,10 +506,16 @@ emailList.sort();
 console.log(emailList);
 
 // Problem 2
-console.log(`\n ==== Problem 2 ====`);
-// Create a new array with all the runners that have donations under $100.
+console.log(`\n ==== Problem 2 part 1 ====`);
+// Create a new array with all the runners that have donations under $100 and create a variable that it has a total.
 const lowDonations = runners.filter(runner => runner.donation < 100);
 console.log(lowDonations);
+
+console.log(`\n ==== Problem 2 part 2 ====`);
+const totalPriceUnder100 = lowDonations.reduce((accumulator, runner) => {
+  return accumulator + runner.donation;
+}, 0);
+console.log(totalPriceUnder100);
 
 // Problem 3
 console.log(`\n ==== Problem 3 ====`);
