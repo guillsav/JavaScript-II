@@ -472,7 +472,7 @@ console.log(fullName);
 console.log(`\n ==== Challenge 2: Use .map() ====`);
 
 let allCaps = [];
-allCaps.push(runners.map(runner => runner.first_name.toUpperCase()));
+runners.map(runner => allCaps.push(runner.first_name.toUpperCase()));
 
 console.log(allCaps);
 
