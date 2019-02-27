@@ -1,14 +1,31 @@
 // ==== Challenge 1: Write your own closure ====
 // Write a simple closure of your own creation.  Keep it simple!
 
+function localScope() {
+  const localMessage = 'local scope';
+  function innerScope() {
+    console.log(`I am a function defined in the ${localMessage} function`);
+  }
+  innerScope();
+}
+localScope();
 
 /* STRETCH PROBLEMS, Do not attempt until you have completed all previous tasks for today's project files */
-
 
 // ==== Challenge 2: Create a counter function ====
 const counter = () => {
   // Return a function that when invoked increments and returns a counter variable.
+
+  let counter = 0;
+  return function increment() {
+    return ++counter;
+  };
 };
+
+const newCounter = counter();
+console.log(newCounter()); // 1
+console.log(newCounter()); // 2
+
 // Example usage: const newCounter = counter();
 // newCounter(); // 1
 // newCounter(); // 2
@@ -18,4 +35,23 @@ const counterFactory = () => {
   // Return an object that has two methods called `increment` and `decrement`.
   // `increment` should increment a counter variable in closure scope and return it.
   // `decrement` should decrement the counter variable and return it.
+  let counter = 0;
+
+  return {
+    increment: function() {
+      return ++counter;
+    },
+    decrement: function() {
+      return --counter;
+    }
+  };
 };
+
+const counterPlus = counterFactory().increment;
+const counterMinus = counterFactory().decrement;
+
+console.log(counterPlus());
+console.log(counterPlus());
+
+console.log(counterMinus());
+console.log(counterMinus());
